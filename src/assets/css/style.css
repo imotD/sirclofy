@@ -8,6 +8,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+.app {
+  position: relative;
+}
+
 .text-font-global {
   font-family: "Poppins", sans-serif !important;
 }
@@ -29,5 +33,10 @@
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+.dashboard {
+  min-height: 100vh;
+  padding-top: 5rem;
 }
 /*# sourceMappingURL=style.css.map */

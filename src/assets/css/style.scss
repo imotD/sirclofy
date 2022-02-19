@@ -15,6 +15,9 @@ $blue: #2296cb;
     box-sizing: border-box;
     font-family: $font-main;
 }
+.app {
+    position: relative;
+}
 
 .text-font-global {
     font-family: $font-main !important;
@@ -33,4 +36,9 @@ $blue: #2296cb;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
+}
+
+.dashboard {
+    min-height: 100vh;
+    padding-top: 5rem;
 }

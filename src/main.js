@@ -3,7 +3,10 @@ import App from "./App.vue";
 import router from "./router";
 import vuetify from "./plugins/vuetify";
 import "./assets/css/style.css";
+import axios from "axios";
+import VueAxios from "vue-axios";
 
+Vue.use(VueAxios, { $axios: axios });
 Vue.config.productionTip = false;
 
 new Vue({
