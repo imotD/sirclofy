@@ -24,4 +24,3 @@ pnpm-debug.log*
 
 #Sass
 *.css.map
-*.scss

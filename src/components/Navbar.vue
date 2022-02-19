@@ -13,7 +13,7 @@
         <v-text-field
           solo
           hide-details
-          label="Search"
+          label="Artist or Song"
           append-icon="mdi-magnify"
         ></v-text-field>
       </v-col>
