@@ -5,9 +5,9 @@
         <v-img max-width="50" src="../assets/logo.png"></v-img>
       </v-toolbar-title>
 
-      <v-btn text> Now Playing </v-btn>
+      <v-btn text rounded> Now Playing </v-btn>
 
-      <v-btn text> Explore Station </v-btn>
+      <v-btn text rounded> Explore Station </v-btn>
       <v-spacer></v-spacer>
       <v-col cols="4">
         <v-text-field

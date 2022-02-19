@@ -6,6 +6,7 @@ $black2: #2c2f34;
 $white1: #ffffff;
 $white2: #324252;
 $yellow: #ce870d;
+$blue: #2296cb;
 
 * {
     padding: 0;
@@ -13,6 +14,10 @@ $yellow: #ce870d;
     scroll-behavior: smooth;
     box-sizing: border-box;
     font-family: $font-main;
+}
+
+.text-font-global {
+    font-family: $font-main !important;
 }
 
 .header {

@@ -8,6 +8,10 @@
   font-family: "Poppins", sans-serif;
 }
 
+.text-font-global {
+  font-family: "Poppins", sans-serif !important;
+}
+
 .header {
   height: 100vh;
   display: -webkit-box;
