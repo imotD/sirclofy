@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="mt-16">
     <Navbar />
-    <!-- <MyMusic /> -->
+    <Banner />
     <Dashboard />
     <Footer />
   </div>
@@ -9,7 +9,7 @@
 
 <script>
 import Navbar from "@/components/Navbar.vue";
-// import MyMusic from "@/components/MyMusic.vue";
+import Banner from "@/components/Banner.vue";
 import Dashboard from "@/components/Dashboard.vue";
 import Footer from "@/components/Footer.vue";
 
@@ -17,7 +17,7 @@ export default {
   name: "Home",
   components: {
     Navbar,
-    // MyMusic,
+    Banner,
     Dashboard,
     Footer,
   },
