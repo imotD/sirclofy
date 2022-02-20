@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="mb-5">
-      <v-toolbar flat>
+      <v-toolbar flat v-if="title">
         <v-toolbar-title class="font-weight-medium">
-          <v-icon color="red accent-2"> mdi-fire </v-icon>
+          <v-icon color="blue darken-1"> mdi-chevron-double-up </v-icon>
           {{ title }}
         </v-toolbar-title>
 
@@ -12,17 +12,17 @@
       </v-toolbar>
     </div>
     <v-row class="mb-10">
-      <v-col v-for="i in 8" :key="i" cols="3">
+      <v-col v-for="(item, i) in items" :key="i" cols="3">
         <v-hover v-slot="{ hover }">
           <v-card
             dark
             :elevation="hover ? 12 : 2"
             :class="{ 'on-hover': hover }"
-            to="/about"
+            @click="goTo(item.url)"
           >
             <v-img
               class="white--text align-end"
-              src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+              :src="item.image[2]['#text']"
               lazy-src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"
               gradient="to bottom, rgba(0,0,0,.1),rgb(34 150 203)"
               height="200"
@@ -49,9 +49,18 @@
                   </v-icon>
                 </v-btn>
               </v-card-actions>
-              <v-card-title>The Weeknd</v-card-title>
+              <v-card-title
+                class="d-inline-block text-truncate"
+                style="max-width: 12em"
+              >
+                {{ item.name }}
+              </v-card-title>
+
               <v-card-subtitle class="text-caption">
-                {{ formatPrice(2427690) }} listeners
+                <p v-if="item.artist" class="mb-0">
+                  {{ item.artist.name }}
+                </p>
+                {{ formatPrice(item.listeners) }} listeners
               </v-card-subtitle>
             </v-img>
           </v-card>
@@ -77,6 +86,9 @@ export default {
   methods: {
     formatPrice(value) {
       return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+    },
+    goTo(url) {
+      window.open(url, "_black");
     },
   },
 };
