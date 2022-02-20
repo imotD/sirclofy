@@ -8,65 +8,83 @@
         </v-toolbar-title>
 
         <v-spacer></v-spacer>
-        <v-btn text plain rounded :to="`/${more}`"> See All </v-btn>
+        <v-btn
+          text
+          plain
+          rounded
+          :disabled="items ? false : true"
+          :to="`explor/${title}`"
+        >
+          See All
+        </v-btn>
       </v-toolbar>
     </div>
-    <v-row class="mb-10">
+    <v-row class="mb-10" v-if="items">
       <v-col v-for="(item, i) in items" :key="i" cols="3">
-        <v-hover v-slot="{ hover }">
-          <v-card
-            dark
-            :elevation="hover ? 12 : 2"
-            :class="{ 'on-hover': hover }"
-            @click="goTo(item.url)"
-          >
-            <v-img
-              class="white--text align-end"
-              :src="item.image[2]['#text']"
-              lazy-src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"
-              gradient="to bottom, rgba(0,0,0,.1),rgb(34 150 203)"
-              height="200"
-              width="350"
+        <v-skeleton-loader :loading="loading" type="image">
+          <v-hover v-slot="{ hover }">
+            <v-card
+              dark
+              :elevation="hover ? 12 : 2"
+              :class="{ 'on-hover': hover }"
+              @click="goTo(item.url)"
             >
-              <template v-slot:placeholder>
-                <v-row class="fill-height ma-0" align="center" justify="center">
-                  <v-progress-circular
-                    indeterminate
-                    color="grey lighten-5"
-                  ></v-progress-circular>
-                </v-row>
-              </template>
-
-              <v-card-actions width="40px" height="40px">
-                <v-btn
-                  fab
-                  icon
-                  :class="{ 'show-btns': hover }"
-                  :color="transparent"
-                >
-                  <v-icon :class="{ 'show-btns': hover }" :color="transparent">
-                    mdi-play
-                  </v-icon>
-                </v-btn>
-              </v-card-actions>
-              <v-card-title
-                class="d-inline-block text-truncate"
-                style="max-width: 12em"
+              <v-img
+                class="white--text align-end"
+                :src="item.image[2]['#text']"
+                lazy-src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"
+                gradient="to bottom, rgba(0,0,0,.1),rgb(34 150 203)"
+                height="200"
+                width="350"
               >
-                {{ item.name }}
-              </v-card-title>
+                <template v-slot:placeholder>
+                  <v-row
+                    class="fill-height ma-0"
+                    align="center"
+                    justify="center"
+                  >
+                    <v-progress-circular
+                      indeterminate
+                      color="grey lighten-5"
+                    ></v-progress-circular>
+                  </v-row>
+                </template>
 
-              <v-card-subtitle class="text-caption">
-                <p v-if="item.artist" class="mb-0">
-                  {{ item.artist.name }}
-                </p>
-                {{ formatPrice(item.listeners) }} listeners
-              </v-card-subtitle>
-            </v-img>
-          </v-card>
-        </v-hover>
+                <v-card-actions width="40px" height="40px">
+                  <v-btn
+                    fab
+                    icon
+                    :class="{ 'show-btns': hover }"
+                    :color="transparent"
+                  >
+                    <v-icon
+                      :class="{ 'show-btns': hover }"
+                      :color="transparent"
+                    >
+                      mdi-play
+                    </v-icon>
+                  </v-btn>
+                </v-card-actions>
+                <v-card-title
+                  class="d-inline-block text-truncate"
+                  style="max-width: 12em"
+                >
+                  {{ item.name }}
+                </v-card-title>
+
+                <v-card-subtitle class="text-caption">
+                  <p v-if="item.artist" class="mb-0">
+                    {{ item.artist.name }}
+                  </p>
+                  {{ formatPrice(item.listeners) }} listeners
+                </v-card-subtitle>
+              </v-img>
+            </v-card>
+          </v-hover>
+        </v-skeleton-loader>
       </v-col>
     </v-row>
+    <p v-else>Oops Sorry, data failed to load..</p>
   </div>
 </template>
 
@@ -77,6 +95,7 @@ export default {
     title: String,
     more: String,
     items: Array,
+    loading: Boolean,
   },
   data() {
     return {
