@@ -83,8 +83,20 @@
           </v-hover>
         </v-skeleton-loader>
       </v-col>
+      <v-toolbar v-if="more" flat>
+        <v-spacer></v-spacer>
+        <v-btn
+          text
+          plain
+          rounded
+          :disabled="items ? false : true"
+          :to="`explor/${more}`"
+        >
+          More <v-icon> mdi-chevron-double-right </v-icon>
+        </v-btn>
+      </v-toolbar>
     </v-row>
-    <p v-else class="">
+    <p v-else>
       <v-icon> mdi-emoticon-sad-outline </v-icon>
       Oops Sorry, data failed to load...
     </p>
