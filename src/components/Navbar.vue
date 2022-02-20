@@ -41,8 +41,22 @@ export default {
       const url = this.$route.name;
       if (url !== "Search") {
         this.$router.push(`/search/${this.searchInput}`);
+
+        this.$axios
+          .get(
+            `https://ws.audioscrobbler.com/2.0/?method=album.search&album=${this.searchInput}&api_key=68459665473b2bbde3b815086020419b&format=json`
+          )
+          .then((response) => {
+            let searchTracks = response.data.results.albummatches;
+            localStorage.setItem("searchTracks", JSON.stringify(searchTracks));
+            console.log(searchTracks);
+          })
+          .catch((err) => {
+            console.error("Terkendala", err);
+          });
       } else {
         // this.$router.replace(`/search/${this.searchInput}`);
+        console.log("habis waktu");
       }
     },
   },

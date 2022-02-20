@@ -25,11 +25,8 @@
           <div class="text--disabled font-weight-light">Current Station</div>
           <p class="text-h2 py-5">Judul Lagu</p>
           <p class="text--secondary text-continue">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia
-            praesentium facilis eum a. Nostrum eligendi delectus nihil atque non
-            ut. Lorem, ipsum dolor sit amet consectetur adipisicing elit.
-            Officiis iusto molestiae dolorum pariatur accusantium laudantium
-            alias consectetur facere, ad, quos ipsam ipsum excepturi eos vel,
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
+            aliquam?
           </p>
           <v-btn class="text-caption" outlined plain text>View More</v-btn>
         </v-col>
@@ -41,6 +38,18 @@
 <script>
 export default {
   name: "playsit",
+  data() {
+    return {
+      info: null,
+    };
+  },
+  //   mounted() {
+  //     this.$axios
+  //       .get(
+  //         "https://ws.audioscrobbler.com/2.0/?method=artist.search&artist=cher&api_key=68459665473b2bbde3b815086020419b&format=json"
+  //       )
+  //       .then((response) => (this.info = response));
+  //   },
 };
 </script>
 
