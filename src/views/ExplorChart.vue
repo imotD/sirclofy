@@ -2,7 +2,7 @@
   <div class="mt-16">
     <Navbar />
     <Banner />
-    <Chart :title="title" />
+    <Chart :title="title" :items="data" />
     <Footer />
   </div>
 </template>
@@ -24,10 +24,16 @@ export default {
   data() {
     return {
       title: null,
+      data: null,
     };
   },
   created() {
     this.title = this.$route.params.type;
+    if (this.title == "Top Tracks") {
+      this.data = JSON.parse(localStorage.getItem("dataTrack"));
+    } else {
+      this.data = JSON.parse(localStorage.getItem("dataArtist"));
+    }
   },
 };
 </script>

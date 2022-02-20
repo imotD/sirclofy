@@ -84,7 +84,10 @@
         </v-skeleton-loader>
       </v-col>
     </v-row>
-    <p v-else>Oops Sorry, data failed to load..</p>
+    <p v-else class="">
+      <v-icon> mdi-emoticon-sad-outline </v-icon>
+      Oops Sorry, data failed to load...
+    </p>
   </div>
 </template>
 

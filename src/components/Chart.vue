@@ -11,8 +11,8 @@
         </p>
       </div>
 
-      <TopList :items="data" />
-      <div class="text-center">
+      <TopList :items="items" />
+      <div v-if="items" class="text-center">
         <v-pagination v-model="page" :length="4" circle></v-pagination>
       </div>
     </v-container>
@@ -20,20 +20,18 @@
 </template>
 
 <script>
-import topTrack from "../../public/track.json";
 import TopList from "@/components/TopList.vue";
 export default {
   name: "Chart",
   props: {
     title: String,
+    items: Array,
   },
   components: {
     TopList,
   },
   data() {
     return {
-      data: topTrack.tracks.track,
-      transparent: "rgba(255, 255, 255, 0)",
       page: 1,
     };
   },
