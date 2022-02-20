@@ -2,9 +2,11 @@
   <div>
     <v-app-bar fixed elevate-on-scroll dark>
       <v-toolbar flat>
-        <v-toolbar-title>
-          <v-img max-width="50" src="../assets/logo.png"></v-img>
-        </v-toolbar-title>
+        <v-app-bar-nav-icon color="primary" to="/">
+          <v-toolbar-title>
+            <v-img max-width="50" src="../assets/logo.png"></v-img>
+          </v-toolbar-title>
+        </v-app-bar-nav-icon>
 
         <v-btn text rounded> Now Playing </v-btn>
 
