@@ -8,13 +8,14 @@
         </p>
       </div>
       <TopList title="Top Artists" :items="items" :loading="loading" />
-      <TopList title="Top Tracks" :loading="loading" :items="data" />
+      <TopList title="Top Tracks" :items="data" :loading="loading" />
     </v-container>
   </div>
 </template>
 
 <script>
 import TopList from "@/components/TopList.vue";
+import Service from "@/services/service";
 export default {
   name: "Dashboard",
   components: {
@@ -29,11 +30,7 @@ export default {
   },
   mounted() {
     this.loading = true;
-
-    this.$axios
-      .get(
-        "https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=68459665473b2bbde3b815086020419b&format=json"
-      )
+    Service.getTopArtist()
       .then((response) => {
         this.loading = false;
         let dataArtist = response.data.artists.artist;
@@ -42,13 +39,10 @@ export default {
       })
       .catch((err) => {
         this.loading = false;
-        console.error("Terkendala", err);
+        console.error("Error message", err);
       });
 
-    this.$axios
-      .get(
-        "https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=68459665473b2bbde3b815086020419b&format=json"
-      )
+    Service.getTopTrack()
       .then((response) => {
         this.loading = false;
         let dataTrack = response.data.tracks.track;
@@ -57,7 +51,7 @@ export default {
       })
       .catch((err) => {
         this.loading = false;
-        console.error("Terkendala", err);
+        console.error("Error message", err);
       });
   },
 };
