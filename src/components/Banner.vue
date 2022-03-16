@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <v-banner color="indigo darken-3">
-      <v-img src="../assets/banner.png"></v-img>
-    </v-banner>
-  </div>
+  <v-banner color="indigo darken-3">
+    <v-img aspect-ratio="6" src="../assets/banner.png"></v-img>
+  </v-banner>
 </template>
 
 <script>

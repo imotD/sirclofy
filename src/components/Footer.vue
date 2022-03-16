@@ -2,7 +2,7 @@
   <v-footer dark padless>
     <v-container fluid>
       <v-row justify="center" align="end" no-gutters>
-        <v-col cols="6">
+        <v-col cols="12" md="6">
           <v-card-text class="white--text">
             <v-img
               max-width="200"
@@ -16,7 +16,7 @@
             </p>
           </v-card-text>
         </v-col>
-        <v-col cols="6" class="text-right">
+        <v-col cols="12" md="6" class="text-right">
           <v-card-text>
             <v-btn
               class="font-weight-light text-font-global"

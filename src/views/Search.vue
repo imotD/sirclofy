@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-16">
+  <div class="wraper">
     <Navbar />
     <Banner />
     <DashboardSearch :keywords="keywords" />

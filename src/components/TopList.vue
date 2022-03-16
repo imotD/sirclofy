@@ -20,7 +20,7 @@
       </v-toolbar>
     </div>
     <v-row class="mb-10" v-if="items">
-      <v-col v-for="(item, i) in items" :key="i" cols="3">
+      <v-col v-for="(item, i) in items" :key="i" cols="12" sm="6" md="3">
         <v-skeleton-loader :loading="loading" type="image">
           <v-hover v-slot="{ hover }">
             <v-card
@@ -34,8 +34,8 @@
                 :src="item.image[2]['#text']"
                 lazy-src="https://cdn.vuetifyjs.com/images/cards/halcyon.png"
                 gradient="to bottom, rgba(0,0,0,.1),rgb(34 150 203)"
-                height="200"
-                width="350"
+                max-height="200"
+                aspect-ratio="1.4"
               >
                 <template v-slot:placeholder>
                   <v-row
