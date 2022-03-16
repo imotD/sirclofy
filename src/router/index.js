@@ -13,6 +13,7 @@ const routes = [
   {
     path: "/explor/:type",
     name: "ExplorChart",
+    props: true,
     component: () => import("../views/ExplorChart.vue")
   },
   {

@@ -14,6 +14,7 @@ import Chart from "@/components/Chart.vue";
 import Footer from "@/components/Footer.vue";
 
 export default {
+  props: ["type"],
   name: "ExplorChart",
   components: {
     Navbar,
@@ -23,13 +24,12 @@ export default {
   },
   data() {
     return {
-      title: null,
+      title: this.type,
       data: null,
     };
   },
   created() {
-    this.title = this.$route.params.type;
-    if (this.title == "Top Tracks") {
+    if (this.type == "Top Tracks") {
       this.data = JSON.parse(localStorage.getItem("dataTrack"));
     } else {
       this.data = JSON.parse(localStorage.getItem("dataArtist"));
